@@ -88,7 +88,6 @@ export const restaurant = {
     url: "https://anirudrachaudhary.com.np/",
     label: "Built with ♥ in Lumbini Province, Nepal",
     location: "Lumbini Province, Nepal",
-    designedByLabel: "Designed & Developed by Anirudra Chaudhary",
   },
 
   /** Official logo asset (supplied by the owner). */
