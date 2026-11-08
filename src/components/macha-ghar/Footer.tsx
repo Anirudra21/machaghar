@@ -193,7 +193,7 @@ export function Footer() {
 
         {/* Optional designer line — name is clickable */}
         <p className="mt-3 text-center text-[11px] text-cream/35 sm:text-right">
-          Designed &amp; Developed by{" "}
+        
           <a
             href={developer.url}
             target="_blank"
