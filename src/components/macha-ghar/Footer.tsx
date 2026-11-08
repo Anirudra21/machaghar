@@ -182,7 +182,6 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title="Visit Developer Portfolio"
-              aria-label="Visit Developer Portfolio — Anirudra Chaudhary (opens in a new tab)"
               className="group inline-flex items-center"
             >
               <Heart className="h-3.5 w-3.5 fill-amber text-amber transition-all duration-300 hover:scale-150 hover:drop-shadow-[0_0_6px_rgba(217,164,65,0.8)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-navy rounded-sm" />

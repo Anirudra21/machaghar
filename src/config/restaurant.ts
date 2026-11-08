@@ -84,7 +84,6 @@ export const restaurant = {
 
   /** Developer attribution — the only place this lives. */
   developer: {
-    name: "Anirudra Chaudhary",
     url: "https://anirudrachaudhary.com.np/",
     label: "Built with ♥ in Lumbini Province, Nepal",
     location: "Lumbini Province, Nepal",
