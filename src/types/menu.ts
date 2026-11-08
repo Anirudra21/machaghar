@@ -45,7 +45,6 @@ export interface CartTotals {
 
 export interface CustomerDetails {
   name: string;
-  phone: string;
   instructions: string;
   table: number | null;
 }

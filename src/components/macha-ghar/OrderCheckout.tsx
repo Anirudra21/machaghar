@@ -35,7 +35,6 @@ export function OrderCheckout({ children }: { children: React.ReactNode }) {
   const isDesktop = useIsDesktop();
 
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   const [instructions, setInstructions] = useState("");
   const [table, setTable] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -45,8 +44,8 @@ export function OrderCheckout({ children }: { children: React.ReactNode }) {
 
   const validation = useMemo(
     () =>
-      validateCheckout(lines, { name, phone, instructions, table }),
-    [lines, name, phone, instructions, table],
+      validateCheckout(lines, { name, instructions, table }),
+    [lines, name, instructions, table],
   );
 
   const handleOpenChange = (next: boolean) => {
@@ -68,7 +67,6 @@ export function OrderCheckout({ children }: { children: React.ReactNode }) {
 
     const link = buildOrderWhatsAppLink(lines, {
       name,
-      phone,
       instructions,
       table,
     });
@@ -91,7 +89,6 @@ export function OrderCheckout({ children }: { children: React.ReactNode }) {
   const handleStartNewOrder = () => {
     clear();
     setName("");
-    setPhone("");
     setInstructions("");
     setTable(null);
     setSent(false);
@@ -197,34 +194,18 @@ export function OrderCheckout({ children }: { children: React.ReactNode }) {
             <p className="text-xs font-semibold uppercase tracking-wide text-charcoal/50">
               Customer Details
             </p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="space-y-1.5">
-                <Label htmlFor="cust-name" className="text-sm text-ocean">
-                  Name <span className="text-amber">*</span>
-                </Label>
-                <Input
-                  id="cust-name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
-                  autoComplete="name"
-                  className="h-12 border-ocean/15 bg-white text-base lg:h-9 lg:text-sm"
-                />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="cust-phone" className="text-sm text-ocean">
-                  Phone <span className="text-amber">*</span>
-                </Label>
-                <Input
-                  id="cust-phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="98XXXXXXXX"
-                  inputMode="tel"
-                  autoComplete="tel"
-                  className="h-12 border-ocean/15 bg-white text-base lg:h-9 lg:text-sm"
-                />
-              </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="cust-name" className="text-sm text-ocean">
+                Name <span className="text-amber">*</span>
+              </Label>
+              <Input
+                id="cust-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name"
+                autoComplete="name"
+                className="h-12 border-ocean/15 bg-white text-base lg:h-9 lg:text-sm"
+              />
             </div>
           </div>
 

@@ -38,7 +38,6 @@ export function buildOrderMessage(
     "",
     "CUSTOMER DETAILS",
     `Name: ${customer.name.trim() || "—"}`,
-    `Phone: ${customer.phone.trim() || "—"}`,
     "",
     "TABLE DETAILS",
     `Table: ${tableLabel}`,
@@ -82,9 +81,6 @@ export function validateCheckout(
   }
   if (!customer.name.trim()) {
     return { ok: false, reason: "Please enter your name." };
-  }
-  if (!customer.phone.trim()) {
-    return { ok: false, reason: "Please enter your phone number." };
   }
   return { ok: true };
 }
