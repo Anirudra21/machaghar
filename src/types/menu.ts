@@ -1,9 +1,10 @@
 export type MenuCategoryKey =
-  | "appetizers"
-  | "momo"
-  | "achars"
-  | "main"
-  | "sides";
+  | "fish-recipes"
+  | "mo-items"
+  | "special"
+  | "boneless"
+  | "veg"
+  | "extras";
 
 export interface MenuCategory {
   key: MenuCategoryKey;

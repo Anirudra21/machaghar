@@ -17,12 +17,13 @@ const FILTERS: { key: Filter; label: string }[] = [
 export function MenuSection() {
   const [filter, setFilter] = useState<Filter>("all");
 
-  const filtered = useMemo(
-    () => (filter === "all" ? menu : menu.filter((m) => m.category === filter)),
+  const visibleCategories = useMemo(
+    () =>
+      filter === "all"
+        ? menuCategories
+        : menuCategories.filter((category) => category.key === filter),
     [filter],
   );
-
-  const activeCategory = menuCategories.find((c) => c.key === filter);
 
   return (
     <section
@@ -42,8 +43,8 @@ export function MenuSection() {
             The Complete Macha Ghar Menu
           </h2>
           <p className="mt-5 text-base leading-relaxed text-charcoal/75 text-pretty sm:text-lg">
-            From crispy tawa fry to hand-folded momo and spiced achars — explore
-            every dish and build your order.
+            Explore fish recipes, Mo items, house specials, boneless platters,
+            vegetarian dishes and extras.
           </p>
         </div>
 
@@ -76,17 +77,35 @@ export function MenuSection() {
               );
             })}
           </div>
-          {activeCategory && (
-            <p className="text-sm italic text-charcoal/55">
-              {activeCategory.tagline}
-            </p>
-          )}
         </div>
 
-        {/* Grid */}
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
-          {filtered.map((item) => (
-            <MenuCard key={item.id} item={item} />
+        {/* Category sections */}
+        <div className="mt-10 lg:mt-12">
+          {visibleCategories.map((category) => (
+            <section
+              key={category.key}
+              className="mt-10 first:mt-0"
+              aria-labelledby={`menu-category-${category.key}`}
+            >
+              <div className="mb-5 border-b border-ocean/10 pb-3">
+                <h3
+                  id={`menu-category-${category.key}`}
+                  className="font-serif-display text-2xl font-bold text-ocean sm:text-3xl"
+                >
+                  {category.label}
+                </h3>
+                <p className="mt-1 text-sm text-charcoal/60">
+                  {category.tagline}
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {menu
+                  .filter((item) => item.category === category.key)
+                  .map((item) => (
+                    <MenuCard key={item.id} item={item} />
+                  ))}
+              </div>
+            </section>
           ))}
         </div>
 

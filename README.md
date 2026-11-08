@@ -9,7 +9,7 @@ A premium, fully responsive, multi-page restaurant website for **Macha Ghar Cafe
 - **Official branding** — uses the supplied Macha Ghar Cafe logo in the header & footer.
 - **Nepal national flag favicon** — correct double-pennant shape (crimson, blue border, white moon & sun).
 - **Multi-page architecture** — Home, About, Menu, and Contact pages with a shared sticky navbar, footer, cart, and floating cart.
-- **Interactive menu** — all 25 menu items across 5 categories with exact prices, category filtering, and quantity controls.
+- **Interactive menu** — all 40 menu items across 6 categories with exact prices, category filtering, and quantity controls.
 - **WhatsApp ordering** — multi-item cart, table selection (8 tables), customer details, special instructions, and a fully formatted order message sent via WhatsApp.
 - **Premium design** — Playfair Display + Inter typography, Deep Ocean / Golden Amber / Warm Cream palette, lazy-loaded gallery, smooth animations.
 - **Verified business info** — Butwal-11, Naharpur, Rupandehi; phone 9700063503; WhatsApp +9779700063503; official Facebook page.
@@ -41,7 +41,7 @@ All business details live in **`src/config/restaurant.ts`** — update only this
 - Developer portfolio URL
 - Official logo asset path
 
-The full menu (25 items, exact prices) lives in **`src/config/menu.ts`**.
+The full menu (40 items across 6 categories, with exact prices) lives in **`src/config/menu.ts`**.
 
 ## WhatsApp Ordering
 
@@ -84,7 +84,7 @@ src/
     macha-ghar/         # All website sections & components
   config/
     restaurant.ts       # Centralized business / contact / social config
-    menu.ts             # Full menu (25 items, exact prices)
+    menu.ts             # Full menu (40 items across 6 categories, exact prices)
   lib/
     cart.tsx            # Cart context (add / remove / qty / persistence)
     whatsapp.ts         # Order message builder + validation

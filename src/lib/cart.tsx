@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { menuById } from "@/config/menu";
 import type { CartLine, CartTotals, MenuItem } from "@/types/menu";
 
 interface CartContextValue {
@@ -46,8 +47,34 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       try {
         const raw = window.localStorage.getItem(STORAGE_KEY);
         if (!raw) return [];
-        const parsed = JSON.parse(raw) as CartLine[];
-        return Array.isArray(parsed) ? parsed : [];
+        const parsed: unknown = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return [];
+        return parsed.flatMap((candidate: unknown): CartLine[] => {
+          if (typeof candidate !== "object" || candidate === null) return [];
+          const id = "id" in candidate ? candidate.id : undefined;
+          const quantity =
+            "quantity" in candidate ? candidate.quantity : undefined;
+          if (
+            typeof id !== "string" ||
+            typeof quantity !== "number" ||
+            !Number.isSafeInteger(quantity) ||
+            quantity <= 0
+          ) {
+            return [];
+          }
+          const item = menuById[id];
+          return item && item.id === id
+            ? [
+                {
+                  id: item.id,
+                  name: item.name,
+                  price: item.price,
+                  quantity,
+                  unit: item.unit,
+                },
+              ]
+            : [];
+        });
       } catch {
         return [];
       }
