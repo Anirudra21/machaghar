@@ -39,7 +39,7 @@ export function Footer() {
     <footer className="relative mt-auto bg-navy text-cream">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber/50 to-transparent" />
 
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 pb-28 pt-14 sm:px-6 lg:px-8 lg:pb-16 lg:pt-16">
         <div className="grid gap-10 md:grid-cols-4 lg:gap-12">
           {/* Brand */}
           <div className="md:col-span-2">

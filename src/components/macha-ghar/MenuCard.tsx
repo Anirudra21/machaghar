@@ -71,12 +71,12 @@ export function MenuCard({ item }: { item: MenuItem }) {
                 type="button"
                 onClick={() => decrement(item.id)}
                 aria-label={`Decrease ${item.name} quantity`}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-ocean transition-colors hover:bg-amber hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-ocean transition-colors hover:bg-amber hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber active:scale-90 lg:h-8 lg:w-8"
               >
                 <Minus className="h-4 w-4" />
               </button>
               <span
-                className="min-w-6 text-center text-sm font-bold text-ocean"
+                className="min-w-7 text-center text-sm font-bold text-ocean lg:min-w-6"
                 aria-live="polite"
               >
                 {line.quantity}
@@ -85,7 +85,7 @@ export function MenuCard({ item }: { item: MenuItem }) {
                 type="button"
                 onClick={() => increment(item.id)}
                 aria-label={`Increase ${item.name} quantity`}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-ocean transition-colors hover:bg-amber hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-ocean transition-colors hover:bg-amber hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber active:scale-90 lg:h-8 lg:w-8"
               >
                 <Plus className="h-4 w-4" />
               </button>
@@ -94,7 +94,7 @@ export function MenuCard({ item }: { item: MenuItem }) {
             <button
               type="button"
               onClick={() => add(item, 1)}
-              className="inline-flex items-center gap-1.5 rounded-full bg-ocean px-4 py-2 text-sm font-semibold text-cream transition-all hover:bg-amber hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+              className="inline-flex items-center gap-1.5 rounded-full bg-ocean px-5 py-3 text-sm font-semibold text-cream transition-all hover:bg-amber hover:text-ocean focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber active:scale-95 lg:px-4 lg:py-2"
               aria-label={`Add ${item.name} to order`}
             >
               <Plus className="h-4 w-4" />
@@ -104,9 +104,10 @@ export function MenuCard({ item }: { item: MenuItem }) {
         </div>
       </div>
 
-      {/* In-cart ribbon */}
+      {/* In-cart ribbon — desktop only (on mobile the quantity stepper alone
+          indicates the item is in the cart, avoiding overlap with badges) */}
       {line && (
-        <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-amber px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ocean shadow-sm">
+        <span className="pointer-events-none absolute right-3 top-3 hidden items-center gap-1 rounded-full bg-amber px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ocean shadow-sm lg:inline-flex">
           <Check className="h-3 w-3" /> In order
         </span>
       )}

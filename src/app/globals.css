@@ -125,15 +125,40 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* Prevent horizontal scroll on mobile from any sub-pixel rounding */
+    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "ss01", "cv01", "cv11";
     text-rendering: optimizeLegibility;
+    /* App-like: no rubber-band overscroll on mobile, no text size adjust on rotate */
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
   }
   ::selection {
     background: var(--amber);
     color: var(--ocean);
+  }
+  /* Touch-friendly tap feedback for interactive elements on mobile only */
+  @media (max-width: 1023px) {
+    button,
+    a,
+    [role="button"],
+    [role="tab"],
+    [role="radio"] {
+      -webkit-tap-highlight-color: rgba(217, 164, 65, 0.12);
+    }
+    /* Slightly larger, more legible body text on small screens */
+    input,
+    textarea,
+    select {
+      font-size: 16px; /* prevents iOS auto-zoom on focus */
+    }
+    /* Account for the fixed bottom tab bar when anchor-scrolling */
+    html {
+      scroll-padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    }
   }
 }
 
@@ -187,5 +212,39 @@
   }
   @keyframes shimmer {
     to { background-position-x: -200%; }
+  }
+  /* Safe-area helpers for notched phones / tablets */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .h-safe-bottom {
+    height: env(safe-area-inset-bottom, 0px);
+  }
+  /* App-like bottom sheet: rounded top, no rounded bottom, app height cap */
+  .sheet-bottom-app {
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 88svh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  /* Hide scrollbar but keep scroll (for horizontal tab strips on mobile) */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  /* Snap scrolling for horizontal tab strips */
+  .snap-x-tabs {
+    scroll-snap-type: x proximity;
+  }
+  .snap-x-tabs > * {
+    scroll-snap-align: start;
   }
 }

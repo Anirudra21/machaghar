@@ -50,11 +50,11 @@ export function MenuSection() {
         {/* Filter tabs */}
         <div className="mt-10 flex flex-col items-center gap-4">
           <div
-            className="scrollbar-premium flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-ocean/10 bg-white p-1.5 shadow-sm"
+            className="scrollbar-none snap-x-tabs flex max-w-full items-center gap-2 overflow-x-auto rounded-full border border-ocean/10 bg-white p-1.5 shadow-sm lg:scrollbar-premium"
             role="tablist"
             aria-label="Menu categories"
           >
-            <span className="hidden pl-2 pr-1 text-charcoal/40 sm:inline-flex">
+            <span className="hidden pl-2 pr-1 text-charcoal/40 lg:inline-flex">
               <SlidersHorizontal className="h-4 w-4" />
             </span>
             {FILTERS.map((f) => {
@@ -65,7 +65,7 @@ export function MenuSection() {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setFilter(f.key)}
-                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                  className={`whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-medium transition-all active:scale-95 lg:py-2 ${
                     active
                       ? "bg-amber text-ocean shadow-sm"
                       : "text-charcoal/70 hover:bg-ocean/5 hover:text-ocean"

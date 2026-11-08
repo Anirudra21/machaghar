@@ -7,6 +7,7 @@ import { Navbar } from "@/components/macha-ghar/Navbar";
 import { Footer } from "@/components/macha-ghar/Footer";
 import { CartDrawer } from "@/components/macha-ghar/CartDrawer";
 import { FloatingCart } from "@/components/macha-ghar/FloatingCart";
+import { BottomTabBar } from "@/components/macha-ghar/BottomTabBar";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -132,6 +133,8 @@ export default function RootLayout({
           </div>
           <CartDrawer />
           <FloatingCart />
+          {/* App-like bottom tab navigation — mobile & tablet only (hidden on desktop) */}
+          <BottomTabBar />
         </CartProvider>
         <Toaster />
       </body>

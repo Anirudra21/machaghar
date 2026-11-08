@@ -65,7 +65,7 @@ export function Hero() {
           <div className="animate-float-up mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/menu"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-amber px-7 py-3.5 text-sm font-semibold text-ocean shadow-lg shadow-amber/20 transition-all hover:brightness-110 hover:shadow-amber/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-amber px-7 py-4 text-base font-semibold text-ocean shadow-lg shadow-amber/20 transition-all hover:brightness-110 hover:shadow-amber/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cream active:scale-95 sm:py-3.5 sm:text-sm"
             >
               <UtensilsCrossed className="h-4 w-4 transition-transform group-hover:rotate-12" />
               Explore Our Menu
@@ -76,7 +76,7 @@ export function Hero() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-full border border-cream/35 bg-cream/5 px-7 py-3.5 text-sm font-semibold text-cream backdrop-blur-sm transition-all hover:border-amber hover:bg-amber/10 hover:text-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-cream/35 bg-cream/5 px-7 py-4 text-base font-semibold text-cream backdrop-blur-sm transition-all hover:border-amber hover:bg-amber/10 hover:text-amber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber active:scale-95 sm:py-3.5 sm:text-sm"
             >
               <MessageCircle className="h-4 w-4 transition-transform group-hover:scale-110" />
               Order via WhatsApp

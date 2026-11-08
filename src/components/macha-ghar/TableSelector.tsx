@@ -33,14 +33,14 @@ export function TableSelector({ value, onChange }: TableSelectorProps) {
               role="radio"
               aria-checked={active}
               onClick={() => onChange(t)}
-              className={`relative inline-flex h-12 items-center justify-center rounded-xl border text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber ${
+              className={`relative inline-flex h-14 items-center justify-center rounded-xl border text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber active:scale-95 lg:h-12 ${
                 active
                   ? "border-amber bg-amber text-ocean shadow-sm"
                   : "border-ocean/15 bg-white text-charcoal/70 hover:border-amber/50 hover:text-ocean"
               }`}
             >
               {active && (
-                <Check className="absolute left-2 top-2 h-3 w-3 text-ocean" />
+                <Check className="absolute left-2 top-1.5 h-3 w-3 text-ocean" />
               )}
               <span>Table {t}</span>
             </button>
