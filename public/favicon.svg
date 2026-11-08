@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Nepal national flag — double-pennant shape -->
+  <!-- Outer crimson pennant with blue border -->
+  <path d="M0,0 L200,50 L80,90 L200,130 L0,200 Z"
+        fill="#DC143C" stroke="#003893" stroke-width="12" stroke-linejoin="miter"/>
+
+  <!-- White moon (upper pennant) — crescent + arc of rays -->
+  <g transform="translate(52, 50)" fill="#FFFFFF">
+    <!-- 8 rays in an arc above the crescent -->
+    <g stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round">
+      <line x1="0" y1="-22" x2="0" y2="-13"/>
+      <line x1="7" y1="-20.5" x2="4.5" y2="-12"/>
+      <line x1="13" y1="-17" x2="8.5" y2="-10.5"/>
+      <line x1="17.5" y1="-11.5" x2="11" y2="-7"/>
+      <line x1="-7" y1="-20.5" x2="-4.5" y2="-12"/>
+      <line x1="-13" y1="-17" x2="-8.5" y2="-10.5"/>
+      <line x1="-17.5" y1="-11.5" x2="-11" y2="-7"/>
+    </g>
+    <!-- Crescent: full circle minus offset circle -->
+    <path d="M 0 -6 A 9 9 0 1 0 0 12 A 7 7 0 1 1 0 -6 Z"/>
+  </g>
+
+  <!-- White sun (lower pennant) — circle + 12 rays -->
+  <g transform="translate(74, 146)" fill="#FFFFFF">
+    <!-- 12 triangular rays -->
+    <g>
+      <polygon points="0,-22 2.2,-12 -2.2,-12"/>
+      <polygon points="0,22 2.2,12 -2.2,12"/>
+      <polygon points="22,0 12,2.2 12,-2.2"/>
+      <polygon points="-22,0 -12,2.2 -12,-2.2"/>
+      <polygon points="15.5,-15.5 9.2,-8.6 8.6,-9.2"/>
+      <polygon points="-15.5,-15.5 -9.2,-8.6 -8.6,-9.2"/>
+      <polygon points="15.5,15.5 9.2,8.6 8.6,9.2"/>
+      <polygon points="-15.5,15.5 -9.2,8.6 -8.6,9.2"/>
+      <polygon points="11,-19 6.3,-10.4 4.6,-11.7"/>
+      <polygon points="-11,-19 -6.3,-10.4 -4.6,-11.7"/>
+      <polygon points="11,19 6.3,10.4 4.6,11.7"/>
+      <polygon points="-11,19 -6.3,10.4 -4.6,11.7"/>
+    </g>
+    <circle r="7.5"/>
+  </g>
+</svg>
